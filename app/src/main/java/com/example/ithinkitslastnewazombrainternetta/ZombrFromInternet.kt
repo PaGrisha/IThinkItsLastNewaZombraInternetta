@@ -1,0 +1,10 @@
+package com.example.ithinkitslastnewazombrainternetta
+
+data class ZombrFromInternet(
+    val name: String,
+    val toughness: String,
+    val stamina : String,
+    val speed : String,
+    val description : String,
+    val image : String,
+)
