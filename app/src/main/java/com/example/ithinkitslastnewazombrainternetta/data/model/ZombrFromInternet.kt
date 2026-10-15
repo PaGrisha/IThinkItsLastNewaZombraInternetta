@@ -1,4 +1,4 @@
-package com.example.ithinkitslastnewazombrainternetta
+package com.example.ithinkitslastnewazombrainternetta.data.model
 
 data class ZombrFromInternet(
     val name: String,
