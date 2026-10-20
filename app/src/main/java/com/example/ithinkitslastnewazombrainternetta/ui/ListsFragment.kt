@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ithinkitslastnewazombrainternetta.R
-import com.example.ithinkitslastnewazombrainternetta.data.model.PlantFromInternet
 import com.example.ithinkitslastnewazombrainternetta.data.model.remote.RetrofitClient
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -89,7 +89,10 @@ class ListsFragment : Fragment() {
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recuclerView)
         recyclerView.adapter = customAdapter
-        loadPlants()
+        val layoutManager = GridLayoutManager(view.context, 2)
+        recyclerView.layoutManager = layoutManager
+        //loadPlants()
+        loadZombrs()
     }
 
     private fun loadPlants() {
@@ -112,6 +115,32 @@ class ListsFragment : Fragment() {
             } catch (exception: Exception) {
                 showError(
                     requestName = "список растений",
+                    exception = exception
+                )
+            }
+        }
+    }
+
+    private fun loadZombrs() {
+        lifecycleScope.launch {
+            Log.d(TAG, "Начинаем запрос списка зомби")
+
+            try {
+                val zombrs = RetrofitClient.apiService.getZombies()
+
+                Log.d(TAG, "Список зомби получен")
+                Log.d(TAG, "Количество зомби: ${zombrs.size}")
+
+                zombrs.forEachIndexed { index, zombr ->
+                    Log.d(TAG, "Зомби $index: $zombr")
+                }
+
+                customAdapter.submitList(zombrs)
+
+
+            } catch (exception: Exception) {
+                showError(
+                    requestName = "список зомби",
                     exception = exception
                 )
             }

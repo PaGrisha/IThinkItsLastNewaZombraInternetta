@@ -6,20 +6,29 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ithinkitslastnewazombrainternetta.R
-import com.example.ithinkitslastnewazombrainternetta.data.model.PlantFromInternet
 
 class MyLovelyAdapter(/*private val dataset: List<PlantFromInternet>*/) :
     RecyclerView.Adapter<MyLovelyAdapter.ViewHolder>() {
     private val items = mutableListOf<String>()
 
 
-    fun submitList(names: List<String>) {
+    fun submitList(names: List<String>,  /*onItemClick: (String) -> Unit*/) {
+
         // items.clear()
         items.addAll(names)
         notifyDataSetChanged()
     }
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.textView2)
+        init {
+            // Вешаем клик на весь элемент списка
+            view.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    //onItemClick(items[position])
+                }
+            }
+        }
         //val textView2: TextView = view.findViewById(R.id.textView3)
     }
 
