@@ -5,13 +5,13 @@ plugins {
 android {
     namespace = "com.example.ithinkitslastnewazombrainternetta"
     compileSdk {
-        version = release(37)
+        version = release(35)
     }
 
     defaultConfig {
         applicationId = "com.example.ithinkitslastnewazombrainternetta"
         minSdk = 29
-        targetSdk = 37
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

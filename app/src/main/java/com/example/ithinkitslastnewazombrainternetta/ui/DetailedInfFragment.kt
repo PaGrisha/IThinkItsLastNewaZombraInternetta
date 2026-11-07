@@ -13,10 +13,11 @@ import com.example.ithinkitslastnewazombrainternetta.R
 import com.example.ithinkitslastnewazombrainternetta.data.model.ZombrFromInternet
 import com.example.ithinkitslastnewazombrainternetta.data.model.remote.RetrofitClient
 import com.example.ithinkitslastnewazombrainternetta.databinding.FragmentDetailedBinding
+import com.example.ithinkitslastnewazombrainternetta.databinding.FragmentDetailedInfBinding
 import kotlinx.coroutines.launch
 
 class DetailedInfFragment : Fragment(R.layout.fragment_detailed_inf) {
-    private var _binding: FragmentDetailedBinding? = null
+    private var _binding: FragmentDetailedInfBinding? = null
     // Безопасный доступ к биндингу (работает только между onCreateView и onDestroyView)
     private val binding get() = _binding!!
 
@@ -24,8 +25,13 @@ class DetailedInfFragment : Fragment(R.layout.fragment_detailed_inf) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDetailedBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailedInfBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadZombieDetails("pirate zombiec" )
     }
 
     private fun loadZombieDetails(zombieName: String) {
