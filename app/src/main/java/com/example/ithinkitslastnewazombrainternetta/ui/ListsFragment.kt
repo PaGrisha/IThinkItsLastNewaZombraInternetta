@@ -30,7 +30,7 @@ class ListsFragment : Fragment() {
             view, savedInstanceState
         )
         recyclerView = view.findViewById(R.id.recuclerView)
-        recyclerView.layoutManager = GridLayoutManager(view.context, 2)
+//        recyclerView.layoutManager = GridLayoutManager(view.context, 2)
         customAdapter = MyLovelyAdapter(emptyList()) { itemName ->
             Log.d(
                 "RecyclerClick", "Clicked: $itemName"
