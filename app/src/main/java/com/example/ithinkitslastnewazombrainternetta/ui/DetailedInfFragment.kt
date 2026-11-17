@@ -12,7 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.ithinkitslastnewazombrainternetta.R
 import com.example.ithinkitslastnewazombrainternetta.data.model.ZombrFromInternet
 import com.example.ithinkitslastnewazombrainternetta.data.model.remote.RetrofitClient
-import com.example.ithinkitslastnewazombrainternetta.databinding.FragmentDetailedBinding
 import com.example.ithinkitslastnewazombrainternetta.databinding.FragmentDetailedInfBinding
 import kotlinx.coroutines.launch
 
